@@ -14,7 +14,11 @@
 
 
 <h2>
-    <a href="http://baidu.com" target="_blank">Hello YouMeek</a>
+    <form action="/Basic-Single-Module-SSM/testMethod" method="post">
+        <input type="submit" value="submit"/>
+    </form>
+    <a href="/Basic-Single-Module-SSM/testAntPath/213123/abc" target="_blank">testpath</a>
+    <a href="/Basic-Single-Module-SSM/testRequestMapping" target="_blank">Hello world</a>
 </h2>
 
 <br>
