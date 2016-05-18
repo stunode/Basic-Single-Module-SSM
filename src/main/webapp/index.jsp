@@ -21,7 +21,57 @@
     <a href="/Basic-Single-Module-SSM/testRequestMapping" target="_blank">Hello world</a>
 </h2>
 
-<br>
+<form action="/Basic-Single-Module-SSM/testPojo" method="post">
+    username: <input type="text" name="username"/>
+    <br>
+    password: <input type="password" name="password"/>
+    <br>
+    email: <input type="text" name="email"/>
+    <br>
+    age: <input type="text" name="age"/>
+    <br>
+    city: <input type="text" name="address.city"/>
+    <br>
+    province: <input type="text" name="address.province"/>
+    <br>
+    <input type="submit" value="Submit"/>
+</form>
+
+<br><br>
+
+<a href="/Basic-Single-Module-SSM/testCookieValue">Test CookieValue</a>
+<br><br>
+
+<a href="/Basic-Single-Module-SSM/testRequestHeader">testRequestHeader</a>
+
+<br><br>
+
+<a href="/Basic-Single-Module-SSM/testRequestParam?username=atguigu&age=10">Test ParamsAndHeaders</a>
+<br><br>
+
+<a href="/Basic-Single-Module-SSM/testPathVariable/1">Test PathVariable</a>
+
+<br><br>
+
+<form action="/Basic-Single-Module-SSM/testRest/1" method="post">
+    <input type="hidden" name="_method" value="PUT"/>
+    <input type="submit" value="TestRest PUT"/>
+</form>
+<br><br>
+
+<form action="/Basic-Single-Module-SSM/testRest/1" method="post">
+    <input type="hidden" name="_method" value="DELETE"/>
+    <input type="submit" value="TestRest DELETE"/>
+</form>
+<br><br>
+
+<form action="/Basic-Single-Module-SSM/testRest" method="post">
+    <input type="submit" value="TestRest POST"/>
+</form>
+<br><br>
+
+<a href="/Basic-Single-Module-SSM/testRest/1">Test Rest Get</a>
+<br><br>
 
 <a href="/sysUserController/showUserToJspById/1" target="_blank">查询用户信息并跳转到一个JSP页面</a>
 
