@@ -11,7 +11,28 @@
     <meta name="author" content="">
 </head>
 <body>
-
+<!--
+		模拟修改操作
+		1. 原始数据为: 1, Tom, 123456,tom@atguigu.com,12
+		2. 密码不能被修改.
+		3. 表单回显, 模拟操作直接在表单填写对应的属性值
+	-->
+<form action="/Basic-Single-Module-SSM/testModelAttribute" method="Post">
+    <input type="text" name="id" value="1"/>
+    username: <input type="text" name="username" value="Tom"/>
+    <br>
+    password: <input type="text" name="password" value="123456"/>
+    <br>
+    email: <input type="text" name="email" value="tom@atguigu.com"/>
+    <br>
+    age: <input type="text" name="age" value="12"/>
+    <br>
+    <input type="submit" value="Submit"/>
+</form>
+<br><br>
+<%--SessionAttributes测试--%>
+<a href="/Basic-Single-Module-SSM/testSessionAttributes">Test SessionAttributes</a>
+<br><br>
 
 <h2>
     <form action="/Basic-Single-Module-SSM/testMethod" method="post">
@@ -20,6 +41,25 @@
     <a href="/Basic-Single-Module-SSM/testAntPath/213123/abc" target="_blank">testpath</a>
     <a href="/Basic-Single-Module-SSM/testRequestMapping" target="_blank">Hello world</a>
 </h2>
+
+
+<a href="/Basic-Single-Module-SSM/testRedirect">Test Redirect</a>
+<br><br>
+
+<a href="/Basic-Single-Module-SSM/testView">Test View</a>
+<br><br>
+
+<a href="/Basic-Single-Module-SSM/testViewAndViewResolver">Test ViewAndViewResolver</a>
+<br><br>
+
+<a href="/Basic-Single-Module-SSM/testMap">Test Map</a>
+<br><br>
+
+<a href="/Basic-Single-Module-SSM/testModelAndView">Test ModelAndView</a>
+<br><br>
+
+<a href="/Basic-Single-Module-SSM/testServletAPI">Test ServletAPI</a>
+<br><br>
 
 <form action="/Basic-Single-Module-SSM/testPojo" method="post">
     username: <input type="text" name="username"/>

@@ -30,26 +30,27 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
-        <!--要生成的 pojo 模块位置-->
-        <javaModelGenerator targetPackage="com.generator.pojo" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED">
+        <!--要生成的 entities 模块位置-->
+        <javaModelGenerator targetPackage="com.generator.pojo" targetProject="D:\Basic-Single-Module-SSM\src\main\java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!--要生成的 Mapper.xml 文件位置-->
-        <sqlMapGenerator targetPackage="com.generator.mapper" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED">
+        <sqlMapGenerator targetPackage="com.generator.mapper" targetProject="D:\Basic-Single-Module-SSM\src\main\java">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
         <!--要生成的 Mapper 接口类-->
-        <javaClientGenerator targetPackage="com.generator.mapper" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="com.generator.mapper" targetProject="D:\Basic-Single-Module-SSM\src\main\java"
+                             type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
         
         <!--要根据哪张表生成，要在这里配置-->
         <!--用百分号表示生成所有表,可以直接省去一个一个写 <table tableName="%" /> -->
-        <table tableName="sys_user" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
+        <table tableName="sys_user1" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
         
         
     </context>
