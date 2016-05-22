@@ -339,6 +339,12 @@
             <version>${commons-lang3.version}</version>
         </dependency>
 
+        <!--hibernate.validator form表单验证-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.0.2.Final</version>
+        </dependency>
 
     </dependencies>
     <!--架包依赖 end-->
