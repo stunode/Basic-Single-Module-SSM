@@ -10,8 +10,25 @@
 <html>
 <head>
   <title>Insert title here</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $(".delete").click(function(){
+        var href = $(this).attr("href");
+        $("form").attr("action", href).submit();
+//提交终止符，防止多次提交
+        return false;
+//      alert("Hello jquery")
+      });
+    })
+  </script>
 </head>
 <body>
+<%--post请求转化删除请求--%>
+<form action="" method="POST">
+  <input type="hidden" name="_method" value="DELETE"/>
+</form>
+
 <c:if test="${empty requestScope.employees }">
   没有任何员工信息.
 </c:if>
@@ -40,6 +57,9 @@
     </c:forEach>
   </table>
 </c:if>
+<br><br>
+
+<a href="emp">Add New Employee</a>
 
 </body>
 </html>
