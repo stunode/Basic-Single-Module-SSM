@@ -28,19 +28,19 @@ public class EmployeeHandler {
 	@Autowired
 	private DepartmentDao departmentDao;
 //
-//	@ModelAttribute
-//	public void getEmployee(@RequestParam(value="id",required=false) Integer id,
-//			Map<String, Object> map){
-//		if(id != null){
-//			map.put("employee", employeeDao.get(id));
-//		}
-//	}
+	@ModelAttribute
+	public void getEmployee(@RequestParam(value="id",required=false) Integer id,
+			Map<String, Object> map){
+		if(id != null){
+			map.put("employee", employeeDao.get(id));
+		}
+	}
 //
 	@RequestMapping(value="/emp", method=RequestMethod.PUT)
-	public String update(Employee employee){
+	public String update(@ModelAttribute("employee") Employee employee){
 		employeeDao.save(employee);
 
-		return "redirect:/emps";
+		return "redirect:/Basic-Single-Module-SSM/emps";
 	}
 //
 	@RequestMapping(value="/emp/{id}", method=RequestMethod.GET)
