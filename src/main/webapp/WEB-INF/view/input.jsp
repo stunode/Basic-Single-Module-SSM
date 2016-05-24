@@ -33,12 +33,12 @@
 		   modelAttribute="employee">
 
 	<form:errors path="*"></form:errors>
-	<%--<br>--%>
+	<br>
 
 	<c:if test="${employee.id == null }">
 		<!-- path 属性对应 html 表单标签的 name 属性值 -->
 		LastName: <form:input path="lastName"/>
-		<%--<form:errors path="lastName"></form:errors>--%>
+		<form:errors path="lastName"></form:errors>
 	</c:if>
 	<c:if test="${employee.id != null }">
 		<form:input path="id"/>
@@ -51,7 +51,7 @@
 
 	<br>
 	Email: <form:input path="email"/>
-	<%--<form:errors path="email"></form:errors>--%>
+	<form:errors path="email"></form:errors>
 	<br>
 	<%
 		Map<String, String> genders = new HashMap();
@@ -82,7 +82,7 @@
 	3). 错误消息 ? 如何显示, 如何把错误消息进行国际化
 	-->
 	Birth: <form:input path="birth"/>
-	<%--<form:errors path="birth"></form:errors>--%>
+	<form:errors path="birth"></form:errors>
 	<br>
 	Salary: <form:input path="salary"/>
 	<br>
