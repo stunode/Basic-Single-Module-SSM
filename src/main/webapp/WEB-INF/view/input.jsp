@@ -13,12 +13,12 @@
 </head>
 <body>
 
-<%--<form action="testConversionServiceConverer" method="POST">--%>
-	<%--<!-- lastname-email-gender-department.id 例如: GG-gg@atguigu.com-0-105 -->--%>
-	<%--Employee: <input type="text" name="employee"/>--%>
-	<%--<input type="submit" value="Submit"/>--%>
-<%--</form>--%>
-<%--<br><br>--%>
+<form action="/Basic-Single-Module-SSM/testConversionServiceConverer" method="POST">
+	<!-- lastname-email-gender-department.id 例如: GG-gg@atguigu.com-0-105 -->
+	Employee: <input type="text" name="employee"/>
+	<input type="submit" value="Submit"/>
+</form>
+<br><br>
 
 <!--
     1. WHY 使用 form 标签呢 ?
@@ -32,7 +32,7 @@
 <form:form action="/Basic-Single-Module-SSM/emp" method="POST"
 		   modelAttribute="employee">
 
-	<%--<form:errors path="*"></form:errors>--%>
+	<form:errors path="*"></form:errors>
 	<%--<br>--%>
 
 	<c:if test="${employee.id == null }">
@@ -81,11 +81,11 @@
 	注意: 需校验的 Bean 对象和其绑定结果对象或错误对象时成对出现的，它们之间不允许声明其他的入参
 	3). 错误消息 ? 如何显示, 如何把错误消息进行国际化
 	-->
-	<%--Birth: <form:input path="birth"/>--%>
+	Birth: <form:input path="birth"/>
 	<%--<form:errors path="birth"></form:errors>--%>
-	<%--<br>--%>
-	<%--Salary: <form:input path="salary"/>--%>
-	<%--<br>--%>
+	<br>
+	Salary: <form:input path="salary"/>
+	<br>
 	<input type="submit" value="Submit"/>
 </form:form>
 

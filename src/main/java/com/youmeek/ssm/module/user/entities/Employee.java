@@ -85,11 +85,25 @@ public class Employee {
 		this.salary = salary;
 	}
 
+//	@Override
+//	public String toString() {
+//		return "Employee [id=" + id + ", lastName=" + lastName + ", email="
+//				+ email + ", gender=" + gender + ", department=" + department
+//				+ ", birth=" + birth + ", salary=" + salary + "]";
+//	}
+
+
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", lastName=" + lastName + ", email="
-				+ email + ", gender=" + gender + ", department=" + department
-				+ ", birth=" + birth + ", salary=" + salary + "]";
+		return "Employee{" +
+				"id=" + id +
+				", lastName='" + lastName + '\'' +
+				", email='" + email + '\'' +
+				", gender=" + gender +
+				", department=" + department +
+				", birth=" + birth +
+				", salary=" + salary +
+				'}';
 	}
 
 	public Employee(Integer id, String lastName, String email, Integer gender,

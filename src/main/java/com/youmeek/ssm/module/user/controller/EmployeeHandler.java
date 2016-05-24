@@ -6,13 +6,11 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 import com.youmeek.ssm.module.user.dao.DepartmentDao;
 import com.youmeek.ssm.module.user.dao.EmployeeDao;
@@ -56,7 +54,7 @@ public class EmployeeHandler {
 		return "redirect:/Basic-Single-Module-SSM/emps";
 	}
 //
-	@RequestMapping(value="/emp", method=RequestMethod.POST)
+//	@RequestMapping(value="/emp", method=RequestMethod.POST)
 //	public String save(@Valid Employee employee, Errors result,
 //			Map<String, Object> map){
 //		System.out.println("save: " + employee);
@@ -72,7 +70,19 @@ public class EmployeeHandler {
 //			map.put("departments", departmentDao.getDepartments());
 //			return "input";
 //		}
-		public String save(Employee employee){
+@RequestMapping(value="/emp", method=RequestMethod.POST)
+		public String save(@Valid Employee employee,BindingResult result,Map<String,Object>map){
+//	public String save(@Valid Employee employee,BindingResult result){
+		System.out.println("save" + employee);
+		if(result.getErrorCount()>0) {
+			for (FieldError error : result.getFieldErrors()) {
+				System.out.println(error.getField() + ":" + error.getDefaultMessage());
+			}
+
+			map.put("departments", departmentDao.getDepartments());
+			return "input";
+		}
+
 		employeeDao.save(employee);
 		return "redirect:/Basic-Single-Module-SSM/emps";
 	}
