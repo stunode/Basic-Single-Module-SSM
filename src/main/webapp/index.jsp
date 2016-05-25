@@ -4,12 +4,32 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>首页</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <%--<title>首页</title>--%>
+    <%--<meta charset="utf-8">--%>
+    <%--<meta http-equiv="X-UA-Compatible" content="IE=edge">--%>
+    <%--<meta name="viewport" content="width=device-width, initial-scale=1.0">--%>
+    <%--<meta name="description" content="">--%>
+    <%--<meta name="author" content="">--%>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Insert title here</title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $("#testJson").click(function(){
+                    var url = this.href;
+                    var args = {};
+                    $.post(url, args, function(data){
+                        for(var i = 0; i < data.length; i++){
+                            var id = data[i].id;
+                            var lastName = data[i].lastName;
+
+                            alert(id + ": " + lastName);
+                        }
+                    });
+                    return false;
+                });
+            })
+        </script>
 </head>
 <body>
 <!--
@@ -37,6 +57,34 @@
 <a href="/Basic-Single-Module-SSM/emps">List All Employees</a>
 <br><br>
 
+
+
+<a href="/Basic-Single-Module-SSM/testJson" id="testJson">Test Json</a>
+<br><br>
+
+<form action="/Basic-Single-Module-SSM/testHttpMessageConverter" method="POST" enctype="multipart/form-data">
+    File: <input type="file" name="file"/>
+    Desc: <input type="text" name="desc"/>
+    <input type="submit" value="Submit"/>
+</form>
+
+<br><br>
+
+<a href="/Basic-Single-Module-SSM/testResponseEntity">Test ResponseEntity</a>
+<br><br>
+
+
+<a href="/Basic-Single-Module-SSM/i18n">I18N PAGE</a>
+<br><br>
+
+<%--文件上传--%>
+<form action="/Basic-Single-Module-SSM/testFileUpload" method="POST" enctype="multipart/form-data">
+    File: <input type="file" name="file"/>
+    Desc: <input type="text" name="desc"/>
+    <input type="submit" value="Submit"/>
+</form>
+
+<br><br>
 <%--<h2>--%>
     <%--<form action="/Basic-Single-Module-SSM/testMethod" method="post">--%>
         <%--<input type="submit" value="submit"/>--%>

@@ -38,8 +38,8 @@ public class SpringMVCTestv1 {
     @Autowired
     private EmployeeDao employeeDao;
 //
-    @Autowired
-    private ResourceBundleMessageSource messageSource;
+//    @Autowired
+//    private ResourceBundleMessageSource messageSource;
 //
 //    @RequestMapping("/testSimpleMappingExceptionResolver")
 //    public String testSimpleMappingExceptionResolver(@RequestParam("i") int i){
@@ -54,7 +54,7 @@ public class SpringMVCTestv1 {
 //        return "success";
 //    }
 //
-//    @ResponseStatus(reason="æµ‹è¯•",value=HttpStatus.NOT_FOUND)
+//    @ResponseStatus(reason="²âÊÔ",value=HttpStatus.NOT_FOUND)
 //    @RequestMapping("/testResponseStatusExceptionResolver")
 //    public String testResponseStatusExceptionResolver(@RequestParam("i") int i){
 //        if(i == 13){
@@ -67,22 +67,22 @@ public class SpringMVCTestv1 {
 //
 ////	@ExceptionHandler({RuntimeException.class})
 ////	public ModelAndView handleArithmeticException2(Exception ex){
-////		System.out.println("[å‡ºå¼‚å¸¸äº†]: " + ex);
+////		System.out.println("[³öÒì³£ÁË]: " + ex);
 ////		ModelAndView mv = new ModelAndView("error");
 ////		mv.addObject("exception", ex);
 ////		return mv;
 ////	}
 //
 //    /**
-//     * 1. åœ¨ @ExceptionHandler æ–¹æ³•çš„å…¥å‚ä¸­å¯ä»¥åŠ å…¥ Exception ç±»å‹çš„å‚æ•°, è¯¥å‚æ•°å³å¯¹åº”å‘ç”Ÿçš„å¼‚å¸¸å¯¹è±¡
-//     * 2. @ExceptionHandler æ–¹æ³•çš„å…¥å‚ä¸­ä¸èƒ½ä¼ å…¥ Map. è‹¥å¸Œæœ›æŠŠå¼‚å¸¸ä¿¡æ¯ä¼ å¯¼é¡µé¢ä¸Š, éœ€è¦ä½¿ç”¨ ModelAndView ä½œä¸ºè¿”å›å€¼
-//     * 3. @ExceptionHandler æ–¹æ³•æ ‡è®°çš„å¼‚å¸¸æœ‰ä¼˜å…ˆçº§çš„é—®é¢˜.
-//     * 4. @ControllerAdvice: å¦‚æœåœ¨å½“å‰ Handler ä¸­æ‰¾ä¸åˆ° @ExceptionHandler æ–¹æ³•æ¥å‡ºæ¥å½“å‰æ–¹æ³•å‡ºç°çš„å¼‚å¸¸,
-//     * åˆ™å°†å» @ControllerAdvice æ ‡è®°çš„ç±»ä¸­æŸ¥æ‰¾ @ExceptionHandler æ ‡è®°çš„æ–¹æ³•æ¥å¤„ç†å¼‚å¸¸.
+//     * 1. ÔÚ @ExceptionHandler ·½·¨µÄÈë²ÎÖĞ¿ÉÒÔ¼ÓÈë Exception ÀàĞÍµÄ²ÎÊı, ¸Ã²ÎÊı¼´¶ÔÓ¦·¢ÉúµÄÒì³£¶ÔÏó
+//     * 2. @ExceptionHandler ·½·¨µÄÈë²ÎÖĞ²»ÄÜ´«Èë Map. ÈôÏ£Íû°ÑÒì³£ĞÅÏ¢´«µ¼Ò³ÃæÉÏ, ĞèÒªÊ¹ÓÃ ModelAndView ×÷Îª·µ»ØÖµ
+//     * 3. @ExceptionHandler ·½·¨±ê¼ÇµÄÒì³£ÓĞÓÅÏÈ¼¶µÄÎÊÌâ.
+//     * 4. @ControllerAdvice: Èç¹ûÔÚµ±Ç° Handler ÖĞÕÒ²»µ½ @ExceptionHandler ·½·¨À´³öÀ´µ±Ç°·½·¨³öÏÖµÄÒì³£,
+//     * Ôò½«È¥ @ControllerAdvice ±ê¼ÇµÄÀàÖĞ²éÕÒ @ExceptionHandler ±ê¼ÇµÄ·½·¨À´´¦ÀíÒì³£.
 //     */
 ////	@ExceptionHandler({ArithmeticException.class})
 ////	public ModelAndView handleArithmeticException(Exception ex){
-////		System.out.println("å‡ºå¼‚å¸¸äº†: " + ex);
+////		System.out.println("³öÒì³£ÁË: " + ex);
 ////		ModelAndView mv = new ModelAndView("error");
 ////		mv.addObject("exception", ex);
 ////		return mv;
@@ -94,38 +94,38 @@ public class SpringMVCTestv1 {
 //        return "success";
 //    }
 //
-    @RequestMapping("/testFileUpload")
-    public String testFileUpload(@RequestParam("desc") String desc,
-                                 @RequestParam("file") MultipartFile file) throws IOException{
-        System.out.println("desc: " + desc);
-        System.out.println("OriginalFilename: " + file.getOriginalFilename());
-        System.out.println("InputStream: " + file.getInputStream());
-        return "success";
-    }
+//    @RequestMapping("/testFileUpload")
+//    public String testFileUpload(@RequestParam("desc") String desc,
+//                                 @RequestParam("file") MultipartFile file) throws IOException{
+//        System.out.println("desc: " + desc);
+//        System.out.println("OriginalFilename: " + file.getOriginalFilename());
+//        System.out.println("InputStream: " + file.getInputStream());
+//        return "success";
+//    }
 //
-    @RequestMapping("/i18n")
-    public String testI18n(Locale locale){
-        String val = messageSource.getMessage("i18n.user", null, locale);
-        System.out.println(val);
-        return "i18n";
-    }
+//    @RequestMapping("/i18n")
+//    public String testI18n(Locale locale){
+//        String val = messageSource.getMessage("i18n.user", null, locale);
+//        System.out.println(val);
+//        return "i18n";
+//    }
 //
-    @RequestMapping("/testResponseEntity")
-    public ResponseEntity<byte[]> testResponseEntity(HttpSession session) throws IOException{
-        byte [] body = null;
-        ServletContext servletContext = session.getServletContext();
-        InputStream in = servletContext.getResourceAsStream("/files/abc.txt");
-        body = new byte[in.available()];
-        in.read(body);
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition", "attachment;filename=abc.txt");
-
-        HttpStatus statusCode = HttpStatus.OK;
-
-        ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(body, headers, statusCode);
-        return response;
-    }
+//    @RequestMapping("/testResponseEntity")
+//    public ResponseEntity<byte[]> testResponseEntity(HttpSession session) throws IOException{
+//        byte [] body = null;
+//        ServletContext servletContext = session.getServletContext();
+//        InputStream in = servletContext.getResourceAsStream("/files/abc.txt");
+//        body = new byte[in.available()];
+//        in.read(body);
+//
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.add("Content-Disposition", "attachment;filename=abc.txt");
+//
+//        HttpStatus statusCode = HttpStatus.OK;
+//
+//        ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(body, headers, statusCode);
+//        return response;
+//    }
 //
     @ResponseBody
     @RequestMapping("/testHttpMessageConverter")
