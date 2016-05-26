@@ -365,7 +365,7 @@
             <version>2.6.1</version>
         </dependency>
 
-        <!--添加hibernate依赖-->
+        <!--添加hibernate依赖,拦截器使用-->
         <!-- http://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
         <dependency>
             <groupId>org.hibernate</groupId>

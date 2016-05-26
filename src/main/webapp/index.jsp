@@ -77,6 +77,14 @@
 <a href="/Basic-Single-Module-SSM/i18n">I18N PAGE</a>
 <br><br>
 
+<a href="/Basic-Single-Module-SSM/testExceptionHandlerExceptionResolver?i=0">testExceptionHandlerExceptionResolver</a>
+<br><br>
+<a href="/Basic-Single-Module-SSM/testResponseStatusExceptionResolver?i=10">testResponseStatusExceptionResolver</a>
+<br><br>
+<a href="/Basic-Single-Module-SSM/testDefaultHandlerExceptionResolver">testDefaultHandlerExceptionResolver</a>
+<br><br>
+<a href="/Basic-Single-Module-SSM/testSimpleMappingExceptionResolver">testSimpleMappingExceptionResolver</a>
+<br><br>
 <%--文件上传--%>
 <form action="/Basic-Single-Module-SSM/testFileUpload" method="POST" enctype="multipart/form-data">
     File: <input type="file" name="file"/>

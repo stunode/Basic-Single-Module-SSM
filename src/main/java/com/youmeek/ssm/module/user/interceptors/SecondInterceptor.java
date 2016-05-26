@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class FirstInterceptor implements HandlerInterceptor {
+public class SecondInterceptor implements HandlerInterceptor {
     /**
      //     * 该方法在目标方法之前被调用.
      //     * 若返回值为 true, 则继续调用后续的拦截器和目标方法.
@@ -23,7 +23,7 @@ public class FirstInterceptor implements HandlerInterceptor {
      //     */
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        System.out.println("[FirstInterceptor] preHandle");
+        System.out.println("[SecondInterceptor] preHandle");
         return true;
 //        return false;
     }
@@ -33,13 +33,13 @@ public class FirstInterceptor implements HandlerInterceptor {
      //     */
     @Override
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
-        System.out.println("[FirstInterceptor] postHandle");
+        System.out.println("[SecondInterceptor] postHandle");
     }
     /**
      //     * 渲染视图之后被调用. 释放资源
      //     */
     @Override
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
-        System.out.println("[FirstInterceptor] afterCompletion");
+        System.out.println("[SecondInterceptor] afterCompletion");
     }
 }

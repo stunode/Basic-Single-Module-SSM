@@ -70,6 +70,10 @@
     <mvc:interceptors>
         <!-- 配置自定义的拦截器 -->
         <bean class="com.youmeek.ssm.module.user.interceptors.FirstInterceptor"></bean>
+        <mvc:interceptor>
+            <mvc:mapping path="/Basic-Single-Module-SSM/emps"/>
+            <bean class="com.youmeek.ssm.module.user.interceptors.SecondInterceptor"></bean>
+        </mvc:interceptor>
         <!-- 配置 LocaleChanceInterceptor -->
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>
     </mvc:interceptors>
@@ -85,6 +89,17 @@
         </property>
     </bean>
 
+
+    <!-- 配置使用 SimpleMappingExceptionResolver 来映射异常 -->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!--value值对应${requestScope.ex }中的ex-->
+        <property name="exceptionAttribute" value="ex"></property>
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.ArrayIndexOutOfBoundsException">error</prop>
+            </props>
+        </property>
+    </bean>
     <!--<bean id="conversionService"-->
           <!--class="org.springframework.format.support.FormattingConversionServiceFactoryBean">-->
         <!--<property name="converters">-->
