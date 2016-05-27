@@ -331,6 +331,13 @@
             <version>${commons-io.version}</version>
         </dependency>
 
+        <!--spring mybatis整合 dbcp工具包-->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+
 
         <!--apache工具包-->
         <dependency>
@@ -344,6 +351,14 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>5.0.2.Final</version>
+        </dependency>
+
+        <!--junit测试依赖-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
