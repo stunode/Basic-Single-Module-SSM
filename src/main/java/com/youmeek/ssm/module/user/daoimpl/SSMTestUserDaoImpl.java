@@ -1,30 +1,13 @@
-package com.youmeek.ssm.module.user.dao;
+package com.youmeek.ssm.module.user.daoimpl;
 
-import java.util.Date;
 import java.util.List;
-import com.youmeek.ssm.module.user.dao.SSMTestUserDao;
+import com.youmeek.ssm.module.user.ssmdao.SSMTestUserDao1;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.youmeek.ssm.module.user.entities.SSMTestUser;
 
-/**
- * 
- * <p>
- * Title: UserDaoImpl
- * </p>
- * <p>
- * Description:dao接口实现类
- * </p>
- * <p>
- * Company: www.itcast.com
- * </p>
- * 
- * @author 传智.燕青
- * @date 2015-4-22下午2:47:17
- * @version 1.0
- */
-public class SSMTestUserDaoImpl implements SSMTestUserDao {
+public class SSMTestUserDaoImpl implements SSMTestUserDao1 {
 
 	// 需要向dao实现类中注入SqlSessionFactory
 	// 这里通过构造方法注入
@@ -35,7 +18,7 @@ public class SSMTestUserDaoImpl implements SSMTestUserDao {
 	}
 
 	@Override
-	public SSMTestUser findUserById(int id) {
+	public SSMTestUser findUserByid(int id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 
 		SSMTestUser user = sqlSession.selectOne("test.findUserById", id);
@@ -46,7 +29,7 @@ public class SSMTestUserDaoImpl implements SSMTestUserDao {
 		return user;
 
 	}
-	
+
 	@Override
 	public List<SSMTestUser> findUserByName(String name) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -58,7 +41,7 @@ public class SSMTestUserDaoImpl implements SSMTestUserDao {
 
 		return list;
 	}
-	
+
 
 	@Override
 	public void insertUser(SSMTestUser user) throws Exception {

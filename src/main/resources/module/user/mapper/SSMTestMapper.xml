@@ -6,8 +6,8 @@
 <!-- namespace命名空间，作用就是对sql进行分类化管理，理解sql隔离
 注意：使用mapper代理方法开发，namespace有特殊重要的作用，namespace等于mapper接口地址
 -->
-<mapper namespace="test">
-    <!--<mapper namespace="com.youmeek.ssm.module.user.mapper.SSMTestUserMapper1.java">-->
+<!--<mapper namespace="test">-->
+    <mapper namespace="com.youmeek.ssm.module.user.mapper.SSMTestMapper">
 
     <!-- 定义sql片段
     id：sql片段的唯 一标识

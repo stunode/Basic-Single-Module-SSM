@@ -15,7 +15,7 @@ import com.youmeek.ssm.module.user.entities.SSMTestUser;
  * @date	2015-4-22下午2:45:12
  * @version 1.0
  */
-public interface SSMTestUserMapper {
+public interface SSMTestMapper {
 
 //    //用户信息综合查询
 //    public List<UserCustom> findUserList(UserQueryVo userQueryVo) throws Exception;

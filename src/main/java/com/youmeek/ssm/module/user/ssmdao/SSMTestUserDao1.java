@@ -1,22 +1,15 @@
-package com.youmeek.ssm.module.user.dao;
-
-import java.util.List;
+package com.youmeek.ssm.module.user.ssmdao;
 
 import com.youmeek.ssm.module.user.entities.SSMTestUser;
 
-/**
- *
- * <p>Title: UserDao</p>
- * <p>Description: dao接口，用户管理</p>
- * <p>Company: www.itcast.com</p>
- * @author	传智.燕青
- * @date	2015-4-22下午2:45:12
- * @version 1.0
- */
-public interface SSMTestUserDao {
+import java.util.List;
 
+/**
+ * Created by Administrator on 2016/5/30.
+ */
+public interface SSMTestUserDao1 {
     //根据id查询用户信息
-    public SSMTestUser findUserById(int id) throws Exception;
+    public SSMTestUser findUserByid(int id) throws Exception;
 
     //根据用户名列查询用户列表
     public List<SSMTestUser> findUserByName(String name) throws Exception;
@@ -26,7 +19,4 @@ public interface SSMTestUserDao {
 
     //删除用户信息
     public void deleteUser(int id) throws Exception;
-
-
-
 }
