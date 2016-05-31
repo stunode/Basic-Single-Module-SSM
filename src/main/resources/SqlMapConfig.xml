@@ -47,6 +47,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<mapper resource="module/user/mapper/SSMTest.xml"/>
 		<mapper resource="module/user/mapper/SSMTestMapper.xml"/>
+		<mapper resource="module/user/mapper/OrdersMapperCustom.xml"/>
 		<!--通过resource方法一次加载一个映射文件 -->
 		<!-- <mapper resource="mapper/UserMapper.xml"/> -->
 		
