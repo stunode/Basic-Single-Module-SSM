@@ -3,8 +3,8 @@ package com.youmeek.ssm.module.user.mapper;
 import java.util.List;
 
 import com.youmeek.ssm.module.user.entities.SSMTestUser;
-//import cn.itcast.mybatis.po.UserCustom;
-//import cn.itcast.mybatis.po.UserQueryVo;
+import com.youmeek.ssm.module.user.entities.SSMTestUserQueryVo;
+import com.youmeek.ssm.module.user.entities.SSMTestUserCustom;
 
 /**
  *
@@ -17,11 +17,11 @@ import com.youmeek.ssm.module.user.entities.SSMTestUser;
  */
 public interface SSMTestMapper {
 
-//    //用户信息综合查询
-//    public List<UserCustom> findUserList(UserQueryVo userQueryVo) throws Exception;
+    //用户信息综合查询
+    public List<SSMTestUserCustom> findUserList(SSMTestUserQueryVo userQueryVo) throws Exception;
 //
-//    //用户信息综合查询总数
-//    public int findUserCount(UserQueryVo userQueryVo) throws Exception;
+    //用户信息综合查询总数
+    public int findUserCount(SSMTestUserQueryVo userQueryVo) throws Exception;
 
     //根据id查询用户信息
     public SSMTestUser findUserById(int id) throws Exception;
