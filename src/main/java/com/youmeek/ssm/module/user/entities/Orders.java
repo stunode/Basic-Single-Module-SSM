@@ -15,7 +15,7 @@ public class Orders {
     private String note;
     
     //用户信息
-    private User user;
+    private SSMTestUser user;
     
     //订单明细
     private List<Orderdetail> orderdetails;
@@ -60,11 +60,11 @@ public class Orders {
         this.note = note == null ? null : note.trim();
     }
 
-	public User getUser() {
+	public SSMTestUser getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(SSMTestUser user) {
 		this.user = user;
 	}
 

@@ -9,7 +9,6 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/youmeek/ssm/module/user/entities/Employee.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/youmeek/ssm/module/user/entities/SSMTestUser.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/youmeek/ssm/module/user/jdbc/jdbctest.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/youmeek/ssm/module/user/mapper/SSMTestUserMapper" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/mybatistest/MybatisFirst.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
