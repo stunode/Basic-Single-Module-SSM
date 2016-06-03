@@ -339,6 +339,13 @@
             <version>${commons-lang3.version}</version>
         </dependency>
 
+        <!--mybatis与spring整合datasource-->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+
         <!--hibernate.validator form表单验证-->
         <dependency>
             <groupId>org.hibernate</groupId>
