@@ -8,10 +8,6 @@ public class Orderdetail {
     private Integer itemsId;
 
     private Integer itemsNum;
-    
-    //明细对应的商品信息
-    private Items items;
-    
 
     public Integer getId() {
         return id;
@@ -44,19 +40,4 @@ public class Orderdetail {
     public void setItemsNum(Integer itemsNum) {
         this.itemsNum = itemsNum;
     }
-
-	public Items getItems() {
-		return items;
-	}
-
-	public void setItems(Items items) {
-		this.items = items;
-	}
-
-	@Override
-	public String toString() {
-		return "Orderdetail [id=" + id + ", ordersId=" + ordersId
-				+ ", itemsId=" + itemsId + ", itemsNum=" + itemsNum + "]";
-	}
-    
 }

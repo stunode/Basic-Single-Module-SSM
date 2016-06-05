@@ -5,19 +5,21 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans  
                         http://www.springframework.org/schema/beans/spring-beans-3.2.xsd  
                         http://www.springframework.org/schema/context  
-                        http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/mvc 
+                        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+                        http://www.springframework.org/schema/mvc
                         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 
-    <!--上面的xsd最好和当前使用的Spring版本号一致,如果换了Spring版本,这个最好也跟着改-->
+    <!--&lt;!&ndash;上面的xsd最好和当前使用的Spring版本号一致,如果换了Spring版本,这个最好也跟着改&ndash;&gt;-->
 
 
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
     <!--<context:component-scan base-package="com.youmeek.ssm.**.controller"/>-->
-    <context:component-scan base-package="com.youmeek.ssm.module.user"/>
+    <context:component-scan base-package="com.youmeek.ssm.module.user.controller"/>
+    <context:component-scan base-package="com.youmeek.ssm.module.user.service"/>
     <!-- 配置注解驱动 -->
-    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
-    <!--<mvc:annotation-driven/>-->
+    <!--<mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>-->
+    <mvc:annotation-driven/>
 
     <!--静态资源映射-->
     <!--
@@ -31,75 +33,55 @@
     <mvc:resources mapping="/images/**" location="/WEB-INF/statics/images/"/>
 
 
-    <!-- 对模型视图名称的解析，即在模型视图名称添加前后缀(如果最后一个还是表示文件夹,则最后的斜杠不要漏了) 使用JSP-->
-    <!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
-    <bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/view/"/><!--设置JSP文件的目录位置-->
-        <property name="suffix" value=".jsp"/>
-    </bean>
+    <!--&lt;!&ndash; 对模型视图名称的解析，即在模型视图名称添加前后缀(如果最后一个还是表示文件夹,则最后的斜杠不要漏了) 使用JSP&ndash;&gt;-->
+    <!--&lt;!&ndash; 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- &ndash;&gt;-->
+    <!--<bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+        <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+        <!--<property name="prefix" value="/WEB-INF/view/"/>&lt;!&ndash;设置JSP文件的目录位置&ndash;&gt;-->
+        <!--<property name="suffix" value=".jsp"/>-->
+    <!--</bean>-->
 
-    <!-- 配置视图  BeanNameViewResolver 解析器: 使用视图的名字来解析视图 -->
-    <!-- 通过 order 属性来定义视图解析器的优先级, order 值越小优先级越高 -->
-    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
-        <property name="order" value="1"></property>
-    </bean>
+    <!--&lt;!&ndash; 配置视图  BeanNameViewResolver 解析器: 使用视图的名字来解析视图 &ndash;&gt;-->
+    <!--&lt;!&ndash; 通过 order 属性来定义视图解析器的优先级, order 值越小优先级越高 &ndash;&gt;-->
+    <!--<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">-->
+        <!--<property name="order" value="1"></property>-->
+    <!--</bean>-->
 
-    <!--<mvc:default-servlet-handler/>-->
-    <!--<mvc:annotation-driven></mvc:annotation-driven>-->
-    <!-- 文件上传 start 配置文件上传，如果没有使用文件上传可以不用配置，当然如果不配，那么配置文件中也不必引入上传组件包 -->
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <!-- 默认编码 -->
-        <property name="defaultEncoding" value="UTF-8"/>
-        <!-- 文件大小最大值 上传文件大小限制为10M，10*1024*1024 -->
-        <property name="maxUploadSize" value="10485760"/>
-        <!-- 内存中的最大值 -->
-        <property name="maxInMemorySize" value="4096"/>
-    </bean>
-    <!--文件上传 end-->
-    <!-- 配置国际化资源文件 -->
-    <bean id="messageSource"
-          class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basename" value="i18n"></property>
-    </bean>
+    <!--&lt;!&ndash;<mvc:default-servlet-handler/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<mvc:annotation-driven></mvc:annotation-driven>&ndash;&gt;-->
+    <!--&lt;!&ndash; 文件上传 start 配置文件上传，如果没有使用文件上传可以不用配置，当然如果不配，那么配置文件中也不必引入上传组件包 &ndash;&gt;-->
+    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+        <!--&lt;!&ndash; 默认编码 &ndash;&gt;-->
+        <!--<property name="defaultEncoding" value="UTF-8"/>-->
+        <!--&lt;!&ndash; 文件大小最大值 上传文件大小限制为10M，10*1024*1024 &ndash;&gt;-->
+        <!--<property name="maxUploadSize" value="10485760"/>-->
+        <!--&lt;!&ndash; 内存中的最大值 &ndash;&gt;-->
+        <!--<property name="maxInMemorySize" value="4096"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash;文件上传 end&ndash;&gt;-->
+    <!--&lt;!&ndash; 配置国际化资源文件 &ndash;&gt;-->
+    <!--<bean id="messageSource"-->
+          <!--class="org.springframework.context.support.ResourceBundleMessageSource">-->
+        <!--<property name="basename" value="i18n"></property>-->
+    <!--</bean>-->
 
-    <!-- 配置 SessionLocalResolver -->
-    <bean id="localeResolver"
-          class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
+    <!--&lt;!&ndash; 配置 SessionLocalResolver &ndash;&gt;-->
+    <!--<bean id="localeResolver"-->
+          <!--class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>-->
 
-    <mvc:interceptors>
-        <!-- 配置自定义的拦截器 -->
-        <bean class="com.youmeek.ssm.module.user.interceptors.FirstInterceptor"></bean>
-        <mvc:interceptor>
-            <mvc:mapping path="/Basic-Single-Module-SSM/emps"/>
-            <bean class="com.youmeek.ssm.module.user.interceptors.SecondInterceptor"></bean>
-        </mvc:interceptor>
-        <!-- 配置 LocaleChanceInterceptor -->
-        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>
-    </mvc:interceptors>
-
-
-    <!--配置convertionservice-->
-    <bean id="conversionService"
-          class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-        <property name="converters">
-            <set>
-                <ref bean="employeeConverter"/>
-            </set>
-        </property>
-    </bean>
+    <!--<mvc:interceptors>-->
+        <!--&lt;!&ndash; 配置自定义的拦截器 &ndash;&gt;-->
+        <!--<bean class="com.youmeek.ssm.module.user.interceptors.FirstInterceptor"></bean>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/Basic-Single-Module-SSM/emps"/>-->
+            <!--<bean class="com.youmeek.ssm.module.user.interceptors.SecondInterceptor"></bean>-->
+        <!--</mvc:interceptor>-->
+        <!--&lt;!&ndash; 配置 LocaleChanceInterceptor &ndash;&gt;-->
+        <!--<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>-->
+    <!--</mvc:interceptors>-->
 
 
-    <!-- 配置使用 SimpleMappingExceptionResolver 来映射异常 -->
-    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-        <!--value值对应${requestScope.ex }中的ex-->
-        <property name="exceptionAttribute" value="ex"></property>
-        <property name="exceptionMappings">
-            <props>
-                <prop key="java.lang.ArrayIndexOutOfBoundsException">error</prop>
-            </props>
-        </property>
-    </bean>
+    <!--&lt;!&ndash;配置convertionservice&ndash;&gt;-->
     <!--<bean id="conversionService"-->
           <!--class="org.springframework.format.support.FormattingConversionServiceFactoryBean">-->
         <!--<property name="converters">-->
@@ -108,12 +90,77 @@
             <!--</set>-->
         <!--</property>-->
     <!--</bean>-->
-    <!-- 配置直接转发的页面 -->
-    <!-- 可以直接相应转发的页面, 而无需再经过 Handler 的方法.  -->
-    <mvc:view-controller path="/Basic-Single-Module-SSM/success" view-name="success"/>
-    <mvc:view-controller path="/Basic-Single-Module-SSM/i18n" view-name="i18n"/>
-    <mvc:view-controller path="/Basic-Single-Module-SSM/i18n2" view-name="i18n2"/>
-    <!-- 在实际开发中通常都需配置 mvc:annotation-driven 标签 -->
+
+
+    <!--&lt;!&ndash; 配置使用 SimpleMappingExceptionResolver 来映射异常 &ndash;&gt;-->
+    <!--<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+        <!--&lt;!&ndash;value值对应${requestScope.ex }中的ex&ndash;&gt;-->
+        <!--<property name="exceptionAttribute" value="ex"></property>-->
+        <!--<property name="exceptionMappings">-->
+            <!--<props>-->
+                <!--<prop key="java.lang.ArrayIndexOutOfBoundsException">error</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash;<bean id="conversionService"&ndash;&gt;-->
+          <!--&lt;!&ndash;class="org.springframework.format.support.FormattingConversionServiceFactoryBean">&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="converters">&ndash;&gt;-->
+            <!--&lt;!&ndash;<set>&ndash;&gt;-->
+                <!--&lt;!&ndash;<ref bean="employeeConverter"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;</set>&ndash;&gt;-->
+        <!--&lt;!&ndash;</property>&ndash;&gt;-->
+    <!--&lt;!&ndash;</bean>&ndash;&gt;-->
+    <!--&lt;!&ndash; 配置直接转发的页面 &ndash;&gt;-->
+    <!--&lt;!&ndash; 可以直接相应转发的页面, 而无需再经过 Handler 的方法.  &ndash;&gt;-->
+    <!--<mvc:view-controller path="/Basic-Single-Module-SSM/success" view-name="success"/>-->
+    <!--<mvc:view-controller path="/Basic-Single-Module-SSM/i18n" view-name="i18n"/>-->
+    <!--<mvc:view-controller path="/Basic-Single-Module-SSM/i18n2" view-name="i18n2"/>-->
+    <!--&lt;!&ndash; 在实际开发中通常都需配置 mvc:annotation-driven 标签 &ndash;&gt;-->
+    <!--&lt;!&ndash;<mvc:annotation-driven></mvc:annotation-driven>&ndash;&gt;-->
+
+    <!-- 可以扫描controller、service、...
+	这里让扫描controller，指定controller的包
+	 -->
+    <!--<context:component-scan base-package="com.youmeek.ssm.module.user.*"></context:component-scan>-->
+
+
+    <!--注解映射器 -->
+    <!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/> -->
+    <!--注解适配器 -->
+    <!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/> -->
+
+    <!-- 使用 mvc:annotation-driven代替上边注解映射器和注解适配器配置
+    mvc:annotation-driven默认加载很多的参数绑定方法，
+    比如json转换解析器就默认加载了，如果使用mvc:annotation-driven不用配置上边的RequestMappingHandlerMapping和RequestMappingHandlerAdapter
+    实际开发时使用mvc:annotation-driven
+     -->
+    <!--<mvc:default-servlet-handler/>-->
     <!--<mvc:annotation-driven></mvc:annotation-driven>-->
+    <!--<mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>-->
+
+
+    <!-- 视图解析器
+    解析jsp解析，默认使用jstl标签，classpath下的得有jstl的包
+     -->
+    <bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 配置jsp路径的前缀 -->
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <!-- 配置jsp路径的后缀 -->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- 自定义参数绑定 -->
+    <!--<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">-->
+        <!--&lt;!&ndash; 转换器 &ndash;&gt;-->
+        <!--<property name="converters">-->
+            <!--<list>-->
+                <!--&lt;!&ndash; 日期类型转换 &ndash;&gt;-->
+                <!--<bean class=" com.youmeek.ssm.module.user.controller.converter.CustomDateConverter"/>-->
+            <!--</list>-->
+        <!--</property>-->
+
+
+    <!--</bean>-->
 
 </beans>

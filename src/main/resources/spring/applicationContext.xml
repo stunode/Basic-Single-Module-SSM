@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans  
 http://www.springframework.org/schema/beans/spring-beans-3.2.xsd  
 http://www.springframework.org/schema/context  
-http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--上面的xsd最好和当前使用的Spring版本号一致,如果换了Spring版本,这个最好也跟着改-->
 
     <!-- 引入属性文件 放在最开头,在使用spring之前就引入,里面的变量才能被引用-->
-    <context:property-placeholder location="classpath*:properties/*.properties"/>
+    <context:property-placeholder location="classpath*:properties/db.properties"/>
     <!--
     引入属性文件也可以用这种写法
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -43,11 +44,47 @@ http://www.springframework.org/schema/context/spring-context-3.2.xsd">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
+    <!--&lt;!&ndash; mapper扫描器 &ndash;&gt;-->
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--&lt;!&ndash; 扫描包路径，如果需要扫描多个包，中间使用半角逗号隔开 &ndash;&gt;-->
+        <!--<property name="basePackage" value="com.youmeek.ssm.module.user.entities.mapper"></property>-->
+        <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />-->
+    <!--</bean>-->
+    <!-- 商品管理的service -->
+    <bean id="itemsService" class="com.youmeek.ssm.module.user.service.impl.ItemsServiceImpl"/>
+
     <!-- 原始dao接口 -->
 
-    <bean id="userDao" class="com.youmeek.ssm.module.user.dao.SSMTestUserDaoImpl">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    <!--<bean id="userDao" class="com.youmeek.ssm.module.user.dao.SSMTestUserDaoImpl">-->
+        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+    <!--</bean>-->
+    <!-- 事务管理器
+        对mybatis操作数据库事务控制，spring使用jdbc的事务控制类
+    -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 数据源
+        dataSource在applicationContext-dao.xml中配置了
+         -->
+        <property name="dataSource" ref="dataSource"/>
     </bean>
 
+    <!-- 通知 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!-- 传播行为 -->
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="insert*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+    <!-- aop -->
+    <aop:config>
+        <!--<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.youmeek.ssm.module.user.service.impl.*.*(..))"/>-->
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.youmeek.ssm.module.user..*Service*.*(..))"/>
+    </aop:config>
 
 </beans>

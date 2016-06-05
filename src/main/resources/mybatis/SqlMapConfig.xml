@@ -6,8 +6,8 @@
 
 	<mappers>
 		<mapper resource="module/user/mapper/SSMTest.xml"/>
-		<!--<mapper resource="module/user/mapper/SSMTestMapper.xml"/>-->
-		<!--<mapper resource="module/user/mapper/OrdersMapperCustom.xml"/>-->
+		<mapper resource="module/user/mapper/ItemsMapper.xml"/>
+		<mapper resource="module/user/mapper//ItemsMapperCustom.xml"/>
 		<!--通过resource方法一次加载一个映射文件 -->
 		<!-- <mapper resource="mapper/UserMapper.xml"/> -->
 
